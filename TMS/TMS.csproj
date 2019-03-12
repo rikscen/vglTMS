@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E015A450-DAED-4D93-AA6F-8D845F29D8B4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TMS</RootNamespace>
+    <AssemblyName>TMS</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoUpdater.NET, Version=1.5.0.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.5.0\lib\net35\AutoUpdater.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Schedule, Version=14.1.0.0, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.0, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddOrdertoTrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrdertoTrip.Designer.cs">
+      <DependentUpon>AddOrdertoTrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectionSettings.designer.cs">
+      <DependentUpon>ConnectionSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateScheduleForm.Designer.cs">
+      <DependentUpon>CreateScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTripForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTripForm.Designer.cs">
+      <DependentUpon>CreateTripForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataManager\TripManager.cs" />
+    <Compile Include="DataUnit\TripUnit.cs" />
+    <Compile Include="DataUnit\VehicleUnit.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTrips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageTrips.Designer.cs">
+      <DependentUpon>ManageTrips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataManager\VehicleManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TripCalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TripCalendarForm.Designer.cs">
+      <DependentUpon>TripCalendarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TripCalendarWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TripCalendarWindow.Designer.cs">
+      <DependentUpon>TripCalendarWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTripsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTripsWindow.Designer.cs">
+      <DependentUpon>UpdateTripsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\TripOverviewUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\TripOverviewUserControl.Designer.cs">
+      <DependentUpon>TripOverviewUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\AddTripDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\AddTripDialog.Designer.cs">
+      <DependentUpon>AddTripDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Connection.cs" />
+    <Compile Include="Utilities\DataSupport.cs" />
+    <Compile Include="Utilities\FAQ.cs" />
+    <Compile Include="Utilities\ORMSupport.cs" />
+    <Compile Include="Utilities\RegistrySupport.cs" />
+    <Compile Include="Utilities\SelectGridWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\SelectGridWindow.Designer.cs">
+      <DependentUpon>SelectGridWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\SynchroSupport.cs" />
+    <Compile Include="Utilities\TaskSupport.cs" />
+    <Compile Include="Utilities\UISetter.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="VehicleTripDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VehicleTripDetailForm.Designer.cs">
+      <DependentUpon>VehicleTripDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOrdersForm.Designer.cs">
+      <DependentUpon>ViewOrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTripScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewTripScheduleForm.Designer.cs">
+      <DependentUpon>ViewTripScheduleForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddOrdertoTrip.resx">
+      <DependentUpon>AddOrdertoTrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectionSettings.resx">
+      <DependentUpon>ConnectionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateScheduleForm.resx">
+      <DependentUpon>CreateScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTripForm.resx">
+      <DependentUpon>CreateTripForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageTrips.resx">
+      <DependentUpon>ManageTrips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TripCalendarForm.resx">
+      <DependentUpon>TripCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TripCalendarWindow.resx">
+      <DependentUpon>TripCalendarWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTripsWindow.resx">
+      <DependentUpon>UpdateTripsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\TripOverviewUserControl.resx">
+      <DependentUpon>TripOverviewUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\AddTripDialog.resx">
+      <DependentUpon>AddTripDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\SelectGridWindow.resx">
+      <DependentUpon>SelectGridWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleTripDetailForm.resx">
+      <DependentUpon>VehicleTripDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewOrdersForm.resx">
+      <DependentUpon>ViewOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewTripScheduleForm.resx">
+      <DependentUpon>ViewTripScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
