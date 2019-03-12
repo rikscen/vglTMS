@@ -109,7 +109,7 @@ namespace TMS.DataManager
             param.Add("status", "FOR PICKING");
             param.Add("order_id", orderId);
             param.Add("scheduled_release_date", expectedStart);
-            WMSSqlScript.AppendLine(DataSupport.GetUpdate("ReleaseOrders", param, pk, pv));
+            WMSSqlScript.AppendLine(DataSupport.GetUpsert("ReleaseOrders", param, pk, pv));
             param.Clear();
 
             //WMSSqlScript.AppendLine(DataSupport.GetDelete("ReleaseTripDetails", "trip", tripId));
