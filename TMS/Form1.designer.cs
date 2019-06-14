@@ -167,6 +167,7 @@ namespace ScheduleTestProject
             this.calendarView1.HighlightCurrentDay = true;
             this.calendarView1.Is24HourFormat = true;
             this.calendarView1.LabelTimeSlots = true;
+            this.calendarView1.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
             this.calendarView1.Location = new System.Drawing.Point(0, 156);
             this.calendarView1.MultiUserTabHeight = 19;
             this.calendarView1.Name = "calendarView1";
@@ -330,7 +331,6 @@ namespace ScheduleTestProject
             // 
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
-            this.ribbonPanel1.Visible = true;
             // 
             // ribbonBar3
             // 
@@ -350,6 +350,7 @@ namespace ScheduleTestProject
             this.buttonItem21,
             this.btnToday,
             this.btnBlue});
+            this.ribbonBar3.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
             this.ribbonBar3.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar3.Name = "ribbonBar3";
             this.ribbonBar3.Size = new System.Drawing.Size(1323, 65);
@@ -621,7 +622,6 @@ namespace ScheduleTestProject
             this.contextMenuBar1.TabIndex = 5;
             this.contextMenuBar1.TabStop = false;
             this.contextMenuBar1.Text = "contextMenuBar1";
-            this.contextMenuBar1.WrapItemsDock = true;
             // 
             // InContentContextMenu
             // 

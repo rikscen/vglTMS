@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using TMS.DataManager;
 using TMS.DataUnit;
@@ -26,8 +27,8 @@ namespace TMS
             UISetter.SetLabelAppearance(label1, lblOrder, lblTripOverview);
             UISetter.SetButtonAppearance(btnCreateTrip, btnBack, btnNav);
 
-            var dt = Connection.GetTMSConnection.ExecuteStoredProcedure("SP_GetRoutes", null);
-            cbRoute.SetComboBox(dt, "route_code", "route_id");
+            //var dt = Connection.GetTMSConnection.ExecuteStoredProcedure("SP_GetRoutes", null);
+            //cbRoute.SetComboBox(dt, "route_code", "route_id");
 
             grdVehicleWithTrip.SetGridAppearance();
             grdOrders.SetGridAppearance();
@@ -79,6 +80,7 @@ namespace TMS
                                    row["Client"],
                                    row["customer_id"],
                                    row["name"],
+                                   row["route"],
                                    row["doc_value"]
                                    );
             }
@@ -91,6 +93,7 @@ namespace TMS
                                    row["Client"],
                                    row["customer_id"],
                                    row["name"],
+                                   row["route"],
                                    row["doc value"]
                                    );
                 dropSequence += 1;
@@ -123,7 +126,11 @@ namespace TMS
                     lblTripStart.Text = DateTime.Parse(grd.Rows[e.RowIndex].Cells["colExpectedStart"].Value.ToString()).ToShortDateString();
                     lblTripEnd.Text = DateTime.Parse(grd.Rows[e.RowIndex].Cells["colExpectedEnd"].Value.ToString()).ToShortDateString();
                     lblIncharge.Text = grd.Rows[e.RowIndex].Cells["colIncharge"].Value.ToString();
-                    cbRoute.SelectedValue = grd.Rows[e.RowIndex].Cells["colRoute"].Value;
+                    lblDriver.Text = grd.Rows[e.RowIndex].Cells["colDriver"].Value.ToString();
+                    lblHelper1.Text = grd.Rows[e.RowIndex].Cells["colHelper1"].Value.ToString();
+                    lblHelper2.Text = grd.Rows[e.RowIndex].Cells["colHelper2"].Value.ToString();
+                    lblHelper3.Text = grd.Rows[e.RowIndex].Cells["colHelper3"].Value.ToString();
+                    //cbRoute.SelectedValue = grd.Rows[e.RowIndex].Cells["colRoute"].Value;
                     lblLastUpdated.Text = grd.Rows[e.RowIndex].Cells["colLastUpdated"].Value.ToString();
                     LoadOrders();
                     grdOrders.ClearSelection();
@@ -148,11 +155,11 @@ namespace TMS
 
         private void btnNav_Click(object sender, EventArgs e)
         {
-            if (cbRoute.SelectedIndex == -1)
-            {
-                MessageBox.Show("Select Route");
-                return;
-            }
+            //if (cbRoute.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Select Route");
+            //    return;
+            //}
 
             var manager = new TripManager();
             var tripUnit = new TripUnit();
@@ -162,10 +169,14 @@ namespace TMS
             tripUnit.ExpectedEnd = lblTripEnd.Text;
             tripUnit.Incharge = lblIncharge.Text;
             tripUnit.VehicleId = lblVehicle.Text;
-            tripUnit.RouteId = cbRoute.SelectedValue.ToString();
+            tripUnit.RouteId = "";//cbRoute.SelectedValue.ToString();
             tripUnit.ActualStart = "";
             tripUnit.ActualEnd = "";
             tripUnit.Cost = "";
+            tripUnit.Driver = lblDriver.Text;
+            tripUnit.Helper1 = lblHelper1.Text;
+            tripUnit.Helper2 = lblHelper2.Text;
+            tripUnit.Helper3 = lblHelper3.Text;
             tripUnit.LastUpdated = DateTime.Now.Date.ToShortDateString();
             manager.InsertTrip(tripUnit);
 
@@ -190,8 +201,10 @@ namespace TMS
                 manager.UpdateOutgoingShipmentRequest("out_shipment_id", tripOrderUnit.OrderId);
                 manager.WMSDetailsInsert(tripOrderUnit.TripId, tripOrderUnit.OrderId, tripOrderUnit.DropSequence, lblTripStart.Text);
             }
+            //MessageBox.Show(manager.GetSqlScript());
             manager.RunScript();
 
+            Print();
             MessageBox.Show("SAVED");
 
             DialogResult = DialogResult.OK;
@@ -213,6 +226,52 @@ namespace TMS
         {
             if (rbWithNoOrders.Checked)
                 LoadTrips(3);
+        }
+
+        private void Print()
+        {
+            var doc = new Printing.crTrip();
+
+            var sb = new StringBuilder();
+            //var field = new CrystalDecisions.Shared.ParameterValues();
+            var dt = new DataTable();
+            dt.Columns.Add("tripno");
+            dt.Columns.Add("vehicle");
+            dt.Columns.Add("tripstart");
+            dt.Columns.Add("tripend");
+            dt.Columns.Add("incharge");
+            dt.Columns.Add("route");
+            dt.Columns.Add("driver");
+            dt.Columns.Add("helper1");
+            dt.Columns.Add("helper2");
+            dt.Columns.Add("helper3");
+
+            dt.Rows.Add(lblTripNo.Text, lblVehicle.Text, lblTripStart.Text, lblTripEnd.Text, lblIncharge.Text, "", lblDriver.Text,
+                        string.IsNullOrEmpty(lblHelper2.Text) ? lblHelper1.Text : lblHelper1.Text + ", ", string.IsNullOrEmpty(lblHelper3.Text) ? lblHelper2.Text : lblHelper2.Text + ", ", lblHelper3.Text);
+
+            var param = new Dictionary<string, object>();
+            param.Add("trip_id", lblTripNo.Text);
+
+            doc.Database.Tables["TripHeader"].SetDataSource(dt);
+
+            int count = 0;
+            foreach (DataRow row in Connection.GetTMSConnection.ExecuteStoredProcedure("sp_gettriporderroutes", param).Rows)
+            {
+                sb.Append(row["route"]);
+
+                if (count != Connection.GetTMSConnection.ExecuteStoredProcedure("sp_gettriporderroutes", param).Rows.Count - 1)
+                    sb.Append(", ");
+                count++;
+            }
+            var dt2 = Connection.GetTMSConnection.ExecuteStoredProcedure("sp_gettriporders2", param);
+            doc.Database.Tables["TripDetail"].SetDataSource(dt2);
+
+            doc.SetParameterValue("routes", sb.ToString());
+            using (var dialog = new Printing.PrintForm())
+            {
+                dialog.viewer.ReportSource = doc;
+                dialog.ShowDialog();
+            }
         }
     }
 }

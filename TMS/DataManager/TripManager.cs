@@ -1,5 +1,6 @@
 ﻿using Framework;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using TMS.DataUnit;
 using TMS.Utilities;
@@ -32,7 +33,11 @@ namespace TMS.DataManager
                 { "actual_end", unit.ActualEnd },
                 { "cost", unit.Cost },
                 { "route", unit.RouteId },
-                { "last_updated_on", unit.LastUpdated }
+                { "last_updated_on", unit.LastUpdated },
+                { "driver", unit.Driver },
+                { "helper1", unit.Helper1 },
+                { "helper2", unit.Helper2 },
+                { "helper3", unit.Helper3 }
             };
 
             TMSSqlScript.AppendLine(DataSupport.GetUpsert("Trips", param, "trip_id"));
@@ -58,6 +63,24 @@ namespace TMS.DataManager
                 { "oms", unit.OrderManagementSystem },
                 { "doc_value", unit.DocumentValue },
                 { "drop_sequence", unit.DropSequence },
+            };
+
+            TMSSqlScript.AppendLine(DataSupport.GetUpsert("TripOrders", param, "trip", "order_id"));
+        }
+
+        public void InsertTripOrderDetails(TripOrderDetailUnit unit)
+        {
+            var param = new Dictionary<string, object>
+            {
+                { "trip", unit.TripId },
+                { "order_id", unit.OrderId },
+                { "product", unit.ProductId },
+                { "uom", unit.UnitOfMeasure },
+                { "expected_qty", unit.ExpectedQuantity },
+                { "received_qty", unit.ReceivedQuantity },
+                { "delivered_qty", unit.DeliveredQuantity },
+                { "returned_qty", unit.ReturnedQuantity },
+                { "undelivered_qty", unit.UndeliveredQuantity }
             };
 
             TMSSqlScript.AppendLine(DataSupport.GetUpsert("TripOrders", param, "trip", "order_id"));
@@ -103,17 +126,52 @@ namespace TMS.DataManager
             param.Add("trip", tripId);
             param.Add("order_id", orderId);
             param.Add("drop_sequence", dropSequence);
-            WMSSqlScript.AppendLine(DataSupport.GetUpsert("ReleaseTripDetails", param, "trip"));
+            WMSSqlScript.AppendLine(DataSupport.GetUpsert("ReleaseTripDetails", param, "trip", "order_id"));
             param.Clear();
 
             param.Add("status", "FOR PICKING");
             param.Add("order_id", orderId);
             param.Add("scheduled_release_date", expectedStart);
-            WMSSqlScript.AppendLine(DataSupport.GetUpsert("ReleaseOrders", param, pk, pv));
+            WMSSqlScript.AppendLine(DataSupport.GetUpdate("ReleaseOrders", param, pk, pv));
             param.Clear();
 
             //WMSSqlScript.AppendLine(DataSupport.GetDelete("ReleaseTripDetails", "trip", tripId));
             //WMSSqlScript.AppendLine(DataSupport.GetDelete("ReleaseTrips", "trip_id", tripId));
+        }
+
+        public static DataTable GetOrders()
+        {
+            return Connection.GetTMSConnection.ExecuteStoredProcedure("SP_GetOutShipmentForScheduling", null);
+        }
+
+        public static DataTable GetTrips(int flag, out string message)
+        {
+            System.DateTime start = System.DateTime.Now.Date.AddDays(1);
+            var param = new Dictionary<string, object>();
+            message = "";
+            switch (flag)
+            {
+                //ALL
+                case 1:
+                    param.Add("@date", start);
+                    param.Add("@flag", flag);
+                    message = "NO TRIP SCHEDULES TO SHOW";
+                    break;
+                //WITH ORDERS
+                case 2:
+                    param.Add("@date", start);
+                    param.Add("@flag", flag);
+                    message = "NO TRIP SCHEDULES WITH ORDERS TO SHOW";
+                    break;
+                //NO ORDERS
+                case 3:
+                    param.Add("@date", start);
+                    param.Add("@flag", flag);
+                    message = "NO TRIP SCHEDULES WITH NO ORDERS TO SHOW";
+                    break;
+            }
+
+            return Connection.GetTMSConnection.ExecuteStoredProcedure("SP_GetVehicleWithTripSchedule", param);
         }
 
         public string GetSqlScript()

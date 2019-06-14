@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Framework;
 using System.IO;
-using TMS.Utilities;
+using TMS;
 
 public class FAQ
 {

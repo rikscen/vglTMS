@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TMSDataset" targetNamespace="http://tempuri.org/TMSDataset.xsd" xmlns:mstns="http://tempuri.org/TMSDataset.xsd" xmlns="http://tempuri.org/TMSDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TMSDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TMSDataset" msprop:Generator_UserDSName="TMSDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TripHeader" msprop:Generator_TableClassName="TripHeaderDataTable" msprop:Generator_TableVarName="tableTripHeader" msprop:Generator_RowChangedName="TripHeaderRowChanged" msprop:Generator_TablePropName="TripHeader" msprop:Generator_RowDeletingName="TripHeaderRowDeleting" msprop:Generator_RowChangingName="TripHeaderRowChanging" msprop:Generator_RowEvHandlerName="TripHeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="TripHeaderRowDeleted" msprop:Generator_RowClassName="TripHeaderRow" msprop:Generator_UserTableName="TripHeader" msprop:Generator_RowEvArgName="TripHeaderRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tripno" msprop:Generator_ColumnVarNameInTable="columntripno" msprop:Generator_ColumnPropNameInRow="tripno" msprop:Generator_ColumnPropNameInTable="tripnoColumn" msprop:Generator_UserColumnName="tripno" type="xs:string" minOccurs="0" />
+              <xs:element name="vehicle" msprop:Generator_ColumnVarNameInTable="columnvehicle" msprop:Generator_ColumnPropNameInRow="vehicle" msprop:Generator_ColumnPropNameInTable="vehicleColumn" msprop:Generator_UserColumnName="vehicle" type="xs:string" minOccurs="0" />
+              <xs:element name="tripstart" msprop:Generator_ColumnVarNameInTable="columntripstart" msprop:Generator_ColumnPropNameInRow="tripstart" msprop:Generator_ColumnPropNameInTable="tripstartColumn" msprop:Generator_UserColumnName="tripstart" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="tripend" msprop:Generator_ColumnVarNameInTable="columntripend" msprop:Generator_ColumnPropNameInRow="tripend" msprop:Generator_ColumnPropNameInTable="tripendColumn" msprop:Generator_UserColumnName="tripend" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="incharge" msprop:Generator_ColumnVarNameInTable="columnincharge" msprop:Generator_ColumnPropNameInRow="incharge" msprop:Generator_ColumnPropNameInTable="inchargeColumn" msprop:Generator_UserColumnName="incharge" type="xs:string" minOccurs="0" />
+              <xs:element name="route" msprop:Generator_ColumnVarNameInTable="columnroute" msprop:Generator_ColumnPropNameInRow="route" msprop:Generator_ColumnPropNameInTable="routeColumn" msprop:Generator_UserColumnName="route" type="xs:string" minOccurs="0" />
+              <xs:element name="driver" msprop:Generator_ColumnVarNameInTable="columndriver" msprop:Generator_ColumnPropNameInRow="driver" msprop:Generator_ColumnPropNameInTable="driverColumn" msprop:Generator_UserColumnName="driver" type="xs:string" minOccurs="0" />
+              <xs:element name="helper1" msprop:Generator_ColumnVarNameInTable="columnhelper1" msprop:Generator_ColumnPropNameInRow="helper1" msprop:Generator_ColumnPropNameInTable="helper1Column" msprop:Generator_UserColumnName="helper1" type="xs:string" minOccurs="0" />
+              <xs:element name="helper2" msprop:Generator_ColumnVarNameInTable="columnhelper2" msprop:Generator_ColumnPropNameInRow="helper2" msprop:Generator_ColumnPropNameInTable="helper2Column" msprop:Generator_UserColumnName="helper2" type="xs:string" minOccurs="0" />
+              <xs:element name="helper3" msprop:Generator_ColumnVarNameInTable="columnhelper3" msprop:Generator_ColumnPropNameInRow="helper3" msprop:Generator_ColumnPropNameInTable="helper3Column" msprop:Generator_UserColumnName="helper3" type="xs:string" minOccurs="0" />
+              <xs:element name="totalqty" msprop:Generator_ColumnVarNameInTable="columntotalqty" msprop:Generator_ColumnPropNameInRow="totalqty" msprop:Generator_ColumnPropNameInTable="totalqtyColumn" msprop:Generator_UserColumnName="totalqty" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TripDetail" msprop:Generator_TableClassName="TripDetailDataTable" msprop:Generator_TableVarName="tableTripDetail" msprop:Generator_TablePropName="TripDetail" msprop:Generator_RowDeletingName="TripDetailRowDeleting" msprop:Generator_RowChangingName="TripDetailRowChanging" msprop:Generator_RowEvHandlerName="TripDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TripDetailRowDeleted" msprop:Generator_UserTableName="TripDetail" msprop:Generator_RowChangedName="TripDetailRowChanged" msprop:Generator_RowEvArgName="TripDetailRowChangeEvent" msprop:Generator_RowClassName="TripDetailRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dropseq" msprop:Generator_ColumnVarNameInTable="columndropseq" msprop:Generator_ColumnPropNameInRow="dropseq" msprop:Generator_ColumnPropNameInTable="dropseqColumn" msprop:Generator_UserColumnName="dropseq" type="xs:short" minOccurs="0" />
+              <xs:element name="outshipmentid" msprop:Generator_ColumnVarNameInTable="columnoutshipmentid" msprop:Generator_ColumnPropNameInRow="outshipmentid" msprop:Generator_ColumnPropNameInTable="outshipmentidColumn" msprop:Generator_UserColumnName="outshipmentid" type="xs:string" minOccurs="0" />
+              <xs:element name="refdocdate" msprop:Generator_ColumnVarNameInTable="columnrefdocdate" msprop:Generator_ColumnPropNameInRow="refdocdate" msprop:Generator_ColumnPropNameInTable="refdocdateColumn" msprop:Generator_UserColumnName="refdocdate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="refdoc" msprop:Generator_ColumnVarNameInTable="columnrefdoc" msprop:Generator_ColumnPropNameInRow="refdoc" msprop:Generator_ColumnPropNameInTable="refdocColumn" msprop:Generator_UserColumnName="refdoc" type="xs:string" minOccurs="0" />
+              <xs:element name="client" msprop:Generator_ColumnVarNameInTable="columnclient" msprop:Generator_ColumnPropNameInRow="client" msprop:Generator_ColumnPropNameInTable="clientColumn" msprop:Generator_UserColumnName="client" type="xs:string" minOccurs="0" />
+              <xs:element name="customerid" msprop:Generator_ColumnVarNameInTable="columncustomerid" msprop:Generator_ColumnPropNameInRow="customerid" msprop:Generator_ColumnPropNameInTable="customeridColumn" msprop:Generator_UserColumnName="customerid" type="xs:string" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
+              <xs:element name="docvalue" msprop:Generator_ColumnVarNameInTable="columndocvalue" msprop:Generator_ColumnPropNameInRow="docvalue" msprop:Generator_ColumnPropNameInTable="docvalueColumn" msprop:Generator_UserColumnName="docvalue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="address" msdata:Caption="route" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" type="xs:string" minOccurs="0" />
+              <xs:element name="route" msprop:Generator_ColumnVarNameInTable="columnroute" msprop:Generator_ColumnPropNameInRow="route" msprop:Generator_ColumnPropNameInTable="routeColumn" msprop:Generator_UserColumnName="route" type="xs:string" minOccurs="0" />
+              <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

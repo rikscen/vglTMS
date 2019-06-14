@@ -39,12 +39,18 @@
             this.btnNav = new System.Windows.Forms.Button();
             this.lblTripOverview = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblHelper2 = new System.Windows.Forms.Label();
+            this.lblHelper3 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblDriver = new System.Windows.Forms.Label();
+            this.lblHelper1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblTripNo = new System.Windows.Forms.Label();
-            this.cbRoute = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.lblVehicle = new System.Windows.Forms.Label();
             this.lblTripEnd = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,18 +68,11 @@
             this.colClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCustRoute = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDocValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnTripOverview = new System.Windows.Forms.Panel();
             this.pnAvailable = new System.Windows.Forms.Panel();
             this.grdVehicleWithTrip = new System.Windows.Forms.DataGridView();
-            this.colTripId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVehicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExpectedStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExpectedEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIncharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRoute = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOption = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rbWithNoOrders = new System.Windows.Forms.RadioButton();
             this.rbWithOrders = new System.Windows.Forms.RadioButton();
@@ -81,6 +80,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCreateTrip = new System.Windows.Forms.Button();
+            this.colTripId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVehicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExpectedStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExpectedEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIncharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRoute = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDriver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHelper1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHelper2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHelper3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOption = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrders)).BeginInit();
@@ -119,7 +130,7 @@
             this.btnNav.Name = "btnNav";
             this.btnNav.Size = new System.Drawing.Size(105, 38);
             this.btnNav.TabIndex = 8;
-            this.btnNav.Text = "Save";
+            this.btnNav.Text = "Save & Print";
             this.btnNav.UseVisualStyleBackColor = true;
             this.btnNav.Click += new System.EventHandler(this.btnNav_Click);
             // 
@@ -134,12 +145,18 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.lblHelper2);
+            this.panel6.Controls.Add(this.lblHelper3);
+            this.panel6.Controls.Add(this.label15);
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.lblDriver);
+            this.panel6.Controls.Add(this.lblHelper1);
+            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.lblTripNo);
-            this.panel6.Controls.Add(this.cbRoute);
             this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.lblVehicle);
             this.panel6.Controls.Add(this.lblTripEnd);
             this.panel6.Controls.Add(this.label5);
@@ -151,15 +168,95 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 17);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1063, 66);
+            this.panel6.Size = new System.Drawing.Size(1063, 94);
             this.panel6.TabIndex = 11;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(452, 67);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 15);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Helper 2";
+            // 
+            // lblHelper2
+            // 
+            this.lblHelper2.BackColor = System.Drawing.Color.White;
+            this.lblHelper2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHelper2.Location = new System.Drawing.Point(520, 64);
+            this.lblHelper2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHelper2.Name = "lblHelper2";
+            this.lblHelper2.Size = new System.Drawing.Size(150, 22);
+            this.lblHelper2.TabIndex = 17;
+            this.lblHelper2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHelper3
+            // 
+            this.lblHelper3.BackColor = System.Drawing.Color.White;
+            this.lblHelper3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHelper3.Location = new System.Drawing.Point(756, 64);
+            this.lblHelper3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHelper3.Name = "lblHelper3";
+            this.lblHelper3.Size = new System.Drawing.Size(150, 22);
+            this.lblHelper3.TabIndex = 18;
+            this.lblHelper3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(688, 68);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 15);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Helper 3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Driver";
+            // 
+            // lblDriver
+            // 
+            this.lblDriver.BackColor = System.Drawing.Color.White;
+            this.lblDriver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDriver.Location = new System.Drawing.Point(63, 64);
+            this.lblDriver.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDriver.Name = "lblDriver";
+            this.lblDriver.Size = new System.Drawing.Size(150, 22);
+            this.lblDriver.TabIndex = 13;
+            this.lblDriver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHelper1
+            // 
+            this.lblHelper1.BackColor = System.Drawing.Color.White;
+            this.lblHelper1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHelper1.Location = new System.Drawing.Point(293, 64);
+            this.lblHelper1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHelper1.Name = "lblHelper1";
+            this.lblHelper1.Size = new System.Drawing.Size(150, 22);
+            this.lblHelper1.TabIndex = 14;
+            this.lblHelper1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(225, 68);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 15);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Helper 1";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(4, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "Trip No.";
             // 
@@ -168,7 +265,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(688, 12);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 17);
+            this.label11.Size = new System.Drawing.Size(98, 15);
             this.label11.TabIndex = 10;
             this.label11.Text = "Last updated on";
             // 
@@ -183,31 +280,14 @@
             this.lblTripNo.TabIndex = 7;
             this.lblTripNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbRoute
-            // 
-            this.cbRoute.FormattingEnabled = true;
-            this.cbRoute.Location = new System.Drawing.Point(520, 36);
-            this.cbRoute.Name = "cbRoute";
-            this.cbRoute.Size = new System.Drawing.Size(150, 25);
-            this.cbRoute.TabIndex = 9;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(4, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.Size = new System.Drawing.Size(49, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Vehicle";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(452, 39);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 17);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Route";
             // 
             // lblVehicle
             // 
@@ -236,7 +316,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(452, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 17);
+            this.label5.Size = new System.Drawing.Size(61, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "In-charge";
             // 
@@ -245,7 +325,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(225, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 17);
+            this.label6.Size = new System.Drawing.Size(59, 15);
             this.label6.TabIndex = 5;
             this.label6.Text = "Trip Start";
             // 
@@ -254,7 +334,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(225, 40);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 17);
+            this.label8.Size = new System.Drawing.Size(53, 15);
             this.label8.TabIndex = 5;
             this.label8.Text = "Trip End";
             // 
@@ -294,7 +374,7 @@
             // lblOrder
             // 
             this.lblOrder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOrder.Location = new System.Drawing.Point(0, 83);
+            this.lblOrder.Location = new System.Drawing.Point(0, 111);
             this.lblOrder.Name = "lblOrder";
             this.lblOrder.Size = new System.Drawing.Size(1063, 24);
             this.lblOrder.TabIndex = 12;
@@ -314,14 +394,15 @@
             this.colClient,
             this.colCustId,
             this.colCustName,
+            this.colCustRoute,
             this.colDocValue});
             this.grdOrders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdOrders.Location = new System.Drawing.Point(0, 107);
+            this.grdOrders.Location = new System.Drawing.Point(0, 135);
             this.grdOrders.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grdOrders.Name = "grdOrders";
             this.grdOrders.RowTemplate.Height = 28;
             this.grdOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdOrders.Size = new System.Drawing.Size(1063, 392);
+            this.grdOrders.Size = new System.Drawing.Size(1063, 364);
             this.grdOrders.TabIndex = 50;
             // 
             // colDropSequence
@@ -336,7 +417,7 @@
             this.colDropSequence.Name = "colDropSequence";
             this.colDropSequence.ReadOnly = true;
             this.colDropSequence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colDropSequence.Width = 62;
+            this.colDropSequence.Width = 61;
             // 
             // colShipId
             // 
@@ -345,7 +426,7 @@
             this.colShipId.Name = "colShipId";
             this.colShipId.ReadOnly = true;
             this.colShipId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShipId.Width = 85;
+            this.colShipId.Width = 84;
             // 
             // colRefDocDate
             // 
@@ -358,7 +439,7 @@
             this.colRefDocDate.Name = "colRefDocDate";
             this.colRefDocDate.ReadOnly = true;
             this.colRefDocDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colRefDocDate.Width = 81;
+            this.colRefDocDate.Width = 80;
             // 
             // colRefDoc
             // 
@@ -368,7 +449,7 @@
             this.colRefDoc.Name = "colRefDoc";
             this.colRefDoc.ReadOnly = true;
             this.colRefDoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colRefDoc.Width = 54;
+            this.colRefDoc.Width = 53;
             // 
             // colClient
             // 
@@ -378,7 +459,7 @@
             this.colClient.Name = "colClient";
             this.colClient.ReadOnly = true;
             this.colClient.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colClient.Width = 46;
+            this.colClient.Width = 45;
             // 
             // colCustId
             // 
@@ -388,7 +469,7 @@
             this.colCustId.Name = "colCustId";
             this.colCustId.ReadOnly = true;
             this.colCustId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colCustId.Width = 69;
+            this.colCustId.Width = 68;
             // 
             // colCustName
             // 
@@ -398,6 +479,15 @@
             this.colCustName.ReadOnly = true;
             this.colCustName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colCustName.Width = 95;
+            // 
+            // colCustRoute
+            // 
+            this.colCustRoute.DataPropertyName = "route";
+            this.colCustRoute.HeaderText = "Route";
+            this.colCustRoute.Name = "colCustRoute";
+            this.colCustRoute.ReadOnly = true;
+            this.colCustRoute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colCustRoute.Width = 46;
             // 
             // colDocValue
             // 
@@ -410,7 +500,7 @@
             this.colDocValue.Name = "colDocValue";
             this.colDocValue.ReadOnly = true;
             this.colDocValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colDocValue.Width = 97;
+            this.colDocValue.Width = 96;
             // 
             // pnTripOverview
             // 
@@ -450,6 +540,10 @@
             this.colExpectedEnd,
             this.colIncharge,
             this.colRoute,
+            this.colDriver,
+            this.colHelper1,
+            this.colHelper2,
+            this.colHelper3,
             this.colLastUpdated,
             this.colOption});
             this.grdVehicleWithTrip.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -460,81 +554,6 @@
             this.grdVehicleWithTrip.Size = new System.Drawing.Size(1063, 447);
             this.grdVehicleWithTrip.TabIndex = 3;
             this.grdVehicleWithTrip.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVehicleWithTrip_CellContentClick);
-            // 
-            // colTripId
-            // 
-            this.colTripId.DataPropertyName = "trip_id";
-            this.colTripId.HeaderText = "Trip No";
-            this.colTripId.Name = "colTripId";
-            this.colTripId.ReadOnly = true;
-            this.colTripId.Width = 74;
-            // 
-            // colVehicle
-            // 
-            this.colVehicle.DataPropertyName = "vehicle";
-            this.colVehicle.HeaderText = "Vehicle";
-            this.colVehicle.Name = "colVehicle";
-            this.colVehicle.ReadOnly = true;
-            this.colVehicle.Width = 75;
-            // 
-            // colExpectedStart
-            // 
-            this.colExpectedStart.DataPropertyName = "expected_Start";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            this.colExpectedStart.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colExpectedStart.HeaderText = "Expected Start";
-            this.colExpectedStart.Name = "colExpectedStart";
-            this.colExpectedStart.ReadOnly = true;
-            this.colExpectedStart.Width = 115;
-            // 
-            // colExpectedEnd
-            // 
-            this.colExpectedEnd.DataPropertyName = "expected_end";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "d";
-            this.colExpectedEnd.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colExpectedEnd.HeaderText = "Expected End";
-            this.colExpectedEnd.Name = "colExpectedEnd";
-            this.colExpectedEnd.ReadOnly = true;
-            this.colExpectedEnd.Width = 109;
-            // 
-            // colIncharge
-            // 
-            this.colIncharge.DataPropertyName = "in_charge";
-            this.colIncharge.HeaderText = "In-charge";
-            this.colIncharge.Name = "colIncharge";
-            this.colIncharge.ReadOnly = true;
-            this.colIncharge.Width = 87;
-            // 
-            // colRoute
-            // 
-            this.colRoute.DataPropertyName = "route";
-            this.colRoute.HeaderText = "Route";
-            this.colRoute.Name = "colRoute";
-            this.colRoute.ReadOnly = true;
-            this.colRoute.Width = 66;
-            // 
-            // colLastUpdated
-            // 
-            this.colLastUpdated.DataPropertyName = "last_updated_on";
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = null;
-            this.colLastUpdated.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colLastUpdated.HeaderText = "Last updated on";
-            this.colLastUpdated.Name = "colLastUpdated";
-            this.colLastUpdated.ReadOnly = true;
-            this.colLastUpdated.Visible = false;
-            // 
-            // colOption
-            // 
-            this.colOption.HeaderText = "Option";
-            this.colOption.Name = "colOption";
-            this.colOption.ReadOnly = true;
-            this.colOption.Text = "SELECT";
-            this.colOption.UseColumnTextForButtonValue = true;
-            this.colOption.Width = 51;
             // 
             // panel1
             // 
@@ -552,7 +571,7 @@
             this.rbWithNoOrders.AutoSize = true;
             this.rbWithNoOrders.Location = new System.Drawing.Point(175, 7);
             this.rbWithNoOrders.Name = "rbWithNoOrders";
-            this.rbWithNoOrders.Size = new System.Drawing.Size(108, 21);
+            this.rbWithNoOrders.Size = new System.Drawing.Size(107, 19);
             this.rbWithNoOrders.TabIndex = 3;
             this.rbWithNoOrders.Text = "With no orders";
             this.rbWithNoOrders.UseVisualStyleBackColor = false;
@@ -563,7 +582,7 @@
             this.rbWithOrders.AutoSize = true;
             this.rbWithOrders.Location = new System.Drawing.Point(78, 7);
             this.rbWithOrders.Name = "rbWithOrders";
-            this.rbWithOrders.Size = new System.Drawing.Size(91, 21);
+            this.rbWithOrders.Size = new System.Drawing.Size(90, 19);
             this.rbWithOrders.TabIndex = 4;
             this.rbWithOrders.Text = "With orders";
             this.rbWithOrders.UseVisualStyleBackColor = false;
@@ -575,7 +594,7 @@
             this.rbAllTrips.Checked = true;
             this.rbAllTrips.Location = new System.Drawing.Point(0, 7);
             this.rbAllTrips.Name = "rbAllTrips";
-            this.rbAllTrips.Size = new System.Drawing.Size(72, 21);
+            this.rbAllTrips.Size = new System.Drawing.Size(71, 19);
             this.rbAllTrips.TabIndex = 5;
             this.rbAllTrips.TabStop = true;
             this.rbAllTrips.Text = "All Trips";
@@ -611,9 +630,121 @@
             this.btnCreateTrip.UseVisualStyleBackColor = true;
             this.btnCreateTrip.Click += new System.EventHandler(this.btnCreateTrip_Click);
             // 
+            // colTripId
+            // 
+            this.colTripId.DataPropertyName = "trip_id";
+            this.colTripId.HeaderText = "Trip No";
+            this.colTripId.Name = "colTripId";
+            this.colTripId.ReadOnly = true;
+            this.colTripId.Width = 73;
+            // 
+            // colVehicle
+            // 
+            this.colVehicle.DataPropertyName = "vehicle";
+            this.colVehicle.HeaderText = "Vehicle";
+            this.colVehicle.Name = "colVehicle";
+            this.colVehicle.ReadOnly = true;
+            this.colVehicle.Width = 74;
+            // 
+            // colExpectedStart
+            // 
+            this.colExpectedStart.DataPropertyName = "expected_Start";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colExpectedStart.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colExpectedStart.HeaderText = "Expected Start";
+            this.colExpectedStart.Name = "colExpectedStart";
+            this.colExpectedStart.ReadOnly = true;
+            this.colExpectedStart.Width = 114;
+            // 
+            // colExpectedEnd
+            // 
+            this.colExpectedEnd.DataPropertyName = "expected_end";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "d";
+            this.colExpectedEnd.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colExpectedEnd.HeaderText = "Expected End";
+            this.colExpectedEnd.Name = "colExpectedEnd";
+            this.colExpectedEnd.ReadOnly = true;
+            this.colExpectedEnd.Width = 108;
+            // 
+            // colIncharge
+            // 
+            this.colIncharge.DataPropertyName = "in_charge";
+            this.colIncharge.HeaderText = "In-charge";
+            this.colIncharge.Name = "colIncharge";
+            this.colIncharge.ReadOnly = true;
+            this.colIncharge.Width = 86;
+            // 
+            // colRoute
+            // 
+            this.colRoute.DataPropertyName = "route";
+            this.colRoute.HeaderText = "Route";
+            this.colRoute.Name = "colRoute";
+            this.colRoute.ReadOnly = true;
+            this.colRoute.Width = 65;
+            // 
+            // colDriver
+            // 
+            this.colDriver.DataPropertyName = "driver";
+            this.colDriver.HeaderText = "Driver";
+            this.colDriver.Name = "colDriver";
+            this.colDriver.ReadOnly = true;
+            this.colDriver.Visible = false;
+            this.colDriver.Width = 65;
+            // 
+            // colHelper1
+            // 
+            this.colHelper1.DataPropertyName = "helper1";
+            this.colHelper1.HeaderText = "Helper 1";
+            this.colHelper1.Name = "colHelper1";
+            this.colHelper1.ReadOnly = true;
+            this.colHelper1.Visible = false;
+            this.colHelper1.Width = 79;
+            // 
+            // colHelper2
+            // 
+            this.colHelper2.DataPropertyName = "helper2";
+            this.colHelper2.HeaderText = "Helper 2";
+            this.colHelper2.Name = "colHelper2";
+            this.colHelper2.ReadOnly = true;
+            this.colHelper2.Visible = false;
+            this.colHelper2.Width = 79;
+            // 
+            // colHelper3
+            // 
+            this.colHelper3.DataPropertyName = "helper3";
+            this.colHelper3.HeaderText = "Helper 3";
+            this.colHelper3.Name = "colHelper3";
+            this.colHelper3.ReadOnly = true;
+            this.colHelper3.Visible = false;
+            this.colHelper3.Width = 79;
+            // 
+            // colLastUpdated
+            // 
+            this.colLastUpdated.DataPropertyName = "last_updated_on";
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.colLastUpdated.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colLastUpdated.HeaderText = "Last updated on";
+            this.colLastUpdated.Name = "colLastUpdated";
+            this.colLastUpdated.ReadOnly = true;
+            this.colLastUpdated.Visible = false;
+            this.colLastUpdated.Width = 123;
+            // 
+            // colOption
+            // 
+            this.colOption.HeaderText = "Option";
+            this.colOption.Name = "colOption";
+            this.colOption.ReadOnly = true;
+            this.colOption.Text = "SELECT";
+            this.colOption.UseColumnTextForButtonValue = true;
+            this.colOption.Width = 50;
+            // 
             // CreateScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 561);
             this.Controls.Add(this.pnTripOverview);
@@ -653,9 +784,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblTripNo;
-        private System.Windows.Forms.ComboBox cbRoute;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblVehicle;
         private System.Windows.Forms.Label lblTripEnd;
         private System.Windows.Forms.Label label5;
@@ -666,25 +795,9 @@
         private System.Windows.Forms.Label lblLastUpdated;
         private System.Windows.Forms.Label lblOrder;
         private System.Windows.Forms.DataGridView grdOrders;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDropSequence;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShipId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRefDocDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRefDoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCustId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCustName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDocValue;
         private System.Windows.Forms.Panel pnTripOverview;
         private System.Windows.Forms.Panel pnAvailable;
         private System.Windows.Forms.DataGridView grdVehicleWithTrip;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTripId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVehicle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExpectedStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExpectedEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIncharge;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRoute;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLastUpdated;
-        private System.Windows.Forms.DataGridViewButtonColumn colOption;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rbWithNoOrders;
         private System.Windows.Forms.RadioButton rbWithOrders;
@@ -692,5 +805,34 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCreateTrip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDropSequence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colShipId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRefDocDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRefDoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCustId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCustName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCustRoute;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDocValue;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblHelper2;
+        private System.Windows.Forms.Label lblHelper3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDriver;
+        private System.Windows.Forms.Label lblHelper1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTripId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVehicle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExpectedStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExpectedEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIncharge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRoute;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDriver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHelper1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHelper2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHelper3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLastUpdated;
+        private System.Windows.Forms.DataGridViewButtonColumn colOption;
     }
 }

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TMS</RootNamespace>
     <AssemblyName>TMS</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,16 +33,45 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoUpdater.NET, Version=1.5.0.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autoupdater.NET.Official.1.5.0\lib\net35\AutoUpdater.NET.dll</HintPath>
-    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar.Schedule, Version=14.1.0.0, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.0, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Shared.Base, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -75,20 +105,54 @@
     <Compile Include="CreateTripForm.Designer.cs">
       <DependentUpon>CreateTripForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRouteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerRouteForm.Designer.cs">
+      <DependentUpon>CustomerRouteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataManager\RouteManager.cs" />
     <Compile Include="DataManager\TripManager.cs" />
+    <Compile Include="Dataset\TMSDataset.cs">
+      <DependentUpon>TMSDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\TMSDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TMSDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataUnit\RouteUnit.cs" />
     <Compile Include="DataUnit\TripUnit.cs" />
     <Compile Include="DataUnit\VehicleUnit.cs" />
+    <Compile Include="Dialogs\RouteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RouteDialog.Designer.cs">
+      <DependentUpon>RouteDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SummaryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SummaryDialog.Designer.cs">
+      <DependentUpon>SummaryDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -103,8 +167,33 @@
       <DependentUpon>ManageTrips.cs</DependentUpon>
     </Compile>
     <Compile Include="DataManager\VehicleManager.cs" />
+    <Compile Include="Printing\crTrip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crTrip.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printing\PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\PrintForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printing\PrintForm2.Designer.cs">
+      <DependentUpon>PrintForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoutePlanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoutePlanForm.Designer.cs">
+      <DependentUpon>RoutePlanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TripCalendarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,7 +228,9 @@
     <Compile Include="Utilities\DataSupport.cs" />
     <Compile Include="Utilities\FAQ.cs" />
     <Compile Include="Utilities\ORMSupport.cs" />
+    <Compile Include="Utilities\RegistrationSupport.cs" />
     <Compile Include="Utilities\RegistrySupport.cs" />
+    <Compile Include="Utilities\SecuritySupport.cs" />
     <Compile Include="Utilities\SelectGridWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +241,7 @@
     <Compile Include="Utilities\TaskSupport.cs" />
     <Compile Include="Utilities\UISetter.cs" />
     <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="Utilities\WebControlSupport.cs" />
     <Compile Include="VehicleTripDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,11 +272,23 @@
     <EmbeddedResource Include="CreateTripForm.resx">
       <DependentUpon>CreateTripForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRouteForm.resx">
+      <DependentUpon>CustomerRouteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RouteDialog.resx">
+      <DependentUpon>RouteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SummaryDialog.resx">
+      <DependentUpon>SummaryDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -192,6 +296,17 @@
     <EmbeddedResource Include="ManageTrips.resx">
       <DependentUpon>ManageTrips.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Printing\crTrip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crTrip.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\PrintForm2.resx">
+      <DependentUpon>PrintForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\rptTrip.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -202,6 +317,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RoutePlanForm.resx">
+      <DependentUpon>RoutePlanForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TripCalendarForm.resx">
       <DependentUpon>TripCalendarForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +347,17 @@
     <EmbeddedResource Include="ViewTripScheduleForm.resx">
       <DependentUpon>ViewTripScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Dataset\TMSDataset.xsc">
+      <DependentUpon>TMSDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\TMSDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TMSDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\TMSDataset.xss">
+      <DependentUpon>TMSDataset.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,6 +371,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VGLHelper\VGLHelper.csproj">
+      <Project>{74b10d25-b102-4936-b6fc-9bf8785def93}</Project>
+      <Name>VGLHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgtms.jpg" />
+    <None Include="Resources\tms_icon.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,6 +10,7 @@ using Utility.ModifyRegistry;
 
 public static class Utils
 {
+    public static string branch = null;
     public static Dictionary<String, Dictionary<String, String>> DBConnection
     { get; set; }
 
@@ -63,6 +64,46 @@ public static class Utils
             result = "<div style='background-color:white;text-align:center;color:black;display:inline-block;width:" + base_width + "px;padding:5px;border-radius:10px;border:1px solid black;'>0 %</div>";
         return result;
     }
+
+    public static Dictionary<String, DataRow> BuildIndex(String SQLCommand, String ColumnName)
+    {
+        DataTable table = DataSupport.RunDataSet(SQLCommand).Tables[0];
+        Dictionary<String, DataRow> index = new Dictionary<String, DataRow>(table.Rows.Count);
+        foreach (DataRow Row in table.Rows)
+        { index[Row[ColumnName].ToString()] = Row; }
+        return index;
+    }
+    public static Dictionary<String, DataRow> BuildIndex_DataTable(DataTable table, String ColumnName)
+    {
+        Dictionary<String, DataRow> index = new Dictionary<String, DataRow>(table.Rows.Count);
+        foreach (DataRow Row in table.Rows)
+        { index[Row[ColumnName].ToString()] = Row; }
+        return index;
+    }
+    public static Dictionary<String, DataRow> BuildIndex(String SQLCommand, List<String> ColumnName, String seperator)
+    {
+        DataTable table = DataSupport.RunDataSet(SQLCommand).Tables[0];
+        Dictionary<String, DataRow> index = new Dictionary<String, DataRow>(table.Rows.Count);
+        foreach (DataRow Row in table.Rows)
+        {
+            String key = "";
+            int cnt = 0;
+
+            foreach (String col in ColumnName)
+            {
+                if (cnt == ColumnName.Count - 1)
+                    key += Row[col].ToString().Trim();
+                else
+                    key += Row[col].ToString().Trim() + seperator;
+                cnt++;
+            }
+
+            index[key] = Row;
+        }
+        return index;
+    }
+
+
 
     public static Dictionary<String, Object> ConvertToDict(this NameValueCollection form)
     {

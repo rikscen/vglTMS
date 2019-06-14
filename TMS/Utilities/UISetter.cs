@@ -3,6 +3,8 @@ using System.Data;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using VGLHelper;
+using VGLHelper.CustomControls;
 
 namespace TMS.Utilities
 {
@@ -24,7 +26,7 @@ namespace TMS.Utilities
             {
                 label.Height = 40;
                 label.Font = new Font("ROBOTO", 16);
-                label.BackColor = ColorTranslator.FromHtml(PRIMARY_COLOR);
+                label.BackColor = ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR_DARK);
                 label.ForeColor = Color.White;
                 label.TextAlign = ContentAlignment.MiddleLeft;
             }
@@ -50,44 +52,77 @@ namespace TMS.Utilities
             button.FlatAppearance.BorderSize = 0;
         }
 
+        public static void SetCancelButtonAppearance(this Button button)
+        {
+            button.BackColor = ColorTranslator.FromHtml("#c62828");
+            button.Font = new Font("Roboto", 12);
+            button.ForeColor = Color.White;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+        }
+
         public static void SetGridAppearance(params DataGridView[] dataGridViews)
         {
             foreach (DataGridView datagridview in dataGridViews)
             {
-                //datagridview.BorderStyle = BorderStyle.None;
-                datagridview.BackColor = SystemColors.Control;
-                datagridview.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-                datagridview.DefaultCellStyle.Font = new Font("Courier New", 10);
-                datagridview.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml(SECONDARY_COLOR);
-                datagridview.DefaultCellStyle.SelectionForeColor = Color.White;
-                datagridview.RowsDefaultCellStyle.Padding = new Padding(5, 1, 5, 1);
-                //datagridview.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
-                datagridview.ColumnHeadersDefaultCellStyle.Font = new Font("Courier New", 12, FontStyle.Bold);
+                datagridview.BorderStyle = BorderStyle.None;
+                datagridview.BackColor = ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+                datagridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+                datagridview.ColumnHeadersDefaultCellStyle.BackColor = Color.White;// ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+                datagridview.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;// ColorTranslator.FromHtml(Etcetera.ACCENT);
                 datagridview.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                datagridview.RowTemplate.Height = 50;
-                datagridview.BackgroundColor = SystemColors.Control;
-                datagridview.RowPostPaint += DataGridView_RowPostPaint;
+                datagridview.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                datagridview.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+                datagridview.DefaultCellStyle.SelectionForeColor = ColorTranslator.FromHtml(Etcetera.ACCENT);
+                datagridview.RowsDefaultCellStyle.Padding = new Padding(10, 1, 10, 1);
+                datagridview.RowsDefaultCellStyle.Font = new Font("Courier New", 10);
+                datagridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+                datagridview.RowHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+                datagridview.RowHeadersDefaultCellStyle.ForeColor = ColorTranslator.FromHtml(Etcetera.ACCENT);
+                //datagridview.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+                datagridview.RowTemplate.Height = 40;
+                datagridview.ColumnHeadersHeight = 50;
+                datagridview.BackgroundColor = ColorTranslator.FromHtml(Etcetera.ACCENT);
+                datagridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+                datagridview.EnableHeadersVisualStyles = false;
+                //datagridview.AllowUserToAddRows = false;
                 datagridview.DoubleBuffered(true);
-                datagridview.ClearSelection();
+
+                //datagridview.CellPainting += EventHandlers.Grid_CellPainting;
             }
         }
 
-        public static void SetGridAppearance(this DataGridView dataGridView)
+        public static void SetGridAppearance(this DataGridView datagridview)
         {
-            //datagridview.BorderStyle = BorderStyle.None;
-            dataGridView.BackColor = SystemColors.Control;
-            dataGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView.DefaultCellStyle.Font = new Font("Courier New", 10);
-            dataGridView.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml(SECONDARY_COLOR);
-            dataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridView.RowsDefaultCellStyle.Padding = new Padding(5, 1, 5, 1);
+            datagridview.BorderStyle = BorderStyle.None;
+            datagridview.BackColor = ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+            datagridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            datagridview.ColumnHeadersDefaultCellStyle.BackColor = Color.White;// ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+            datagridview.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;// ColorTranslator.FromHtml(Etcetera.ACCENT);
+            datagridview.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            datagridview.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+            datagridview.DefaultCellStyle.SelectionForeColor = ColorTranslator.FromHtml(Etcetera.ACCENT);
+            datagridview.RowsDefaultCellStyle.Padding = new Padding(10, 1, 10, 1);
+            datagridview.RowsDefaultCellStyle.Font = new Font("Courier New", 12);
+            datagridview.ColumnHeadersDefaultCellStyle.Font = new Font("Courier New", 14, FontStyle.Bold);
+            datagridview.RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            datagridview.RowHeadersDefaultCellStyle.Font = new Font("Courier New", 14, FontStyle.Bold);
+            datagridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            datagridview.RowHeadersDefaultCellStyle.BackColor = Color.White; // ColorTranslator.FromHtml(Etcetera.PRIMARY_COLOR);
+            datagridview.RowHeadersDefaultCellStyle.ForeColor = Color.Black; // ColorTranslator.FromHtml(Etcetera.ACCENT);
+            datagridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             //datagridview.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
-            dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Courier New", 12, FontStyle.Bold);
-            dataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView.RowTemplate.Height = 50;
-            dataGridView.BackgroundColor = SystemColors.Control;
-            dataGridView.DoubleBuffered(true);
-            dataGridView.ClearSelection();
+            datagridview.RowTemplate.Height = 50;
+            datagridview.ColumnHeadersHeight = 50;
+            datagridview.BackgroundColor = ColorTranslator.FromHtml(Etcetera.ACCENT);
+            datagridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            datagridview.EnableHeadersVisualStyles = false;
+            datagridview.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            //datagridview.AllowUserToAddRows = false;
+            datagridview.DoubleBuffered(true);
+
+            //datagridview.CellPainting += EventHandlers.Grid_CellPainting;
         }
 
         private static void DataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -107,6 +142,15 @@ namespace TMS.Utilities
             cbo.DropDownStyle = DropStyle;
             cbo.DataSource = dt;
             cbo.SelectedIndex = -1;
+        }
+
+        public static DataGridViewComboBoxColumn SetDataGridViewComboBox(this DataGridViewComboBoxColumn cb, DataTable source, string displayMember, string valueMember)
+        {
+            cb.DisplayMember = displayMember;
+            cb.ValueMember = valueMember;
+            cb.DataSource = source;
+            cb.DropDownWidth = 50;
+            return cb;
         }
 
         public static void TabControl_DrawItem(object sender, DrawItemEventArgs e)

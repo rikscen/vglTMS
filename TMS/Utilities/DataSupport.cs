@@ -9,6 +9,7 @@ using System.Threading;
 using System.Web;
 using Framework;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Framework
 {
@@ -21,7 +22,7 @@ namespace Framework
 
         public static String GetTMSCode()
         {
-            return "VGL-CEB1";
+            return DataSupport.RunDataSet(String.Format("SELECT TOP 1 tmscode FROM base_branch WHERE branch = '{0}'", Utils.branch)).Tables[0].Rows[0][0].ToString();
         }
 
         public String ConnectionString
@@ -131,9 +132,11 @@ namespace Framework
             var converted_list = ConvertToStringValues(insert_list);
             DBTable dbtable = new DBTable(table, converted_list, primary_keys);
             Dictionary<String, String> primary_values = new Dictionary<String, String>();
+            int index = 0;
             foreach (String key in primary_keys)
             {
-                primary_values.Add(key, insert_list[key].ToString());
+                primary_values.Add(key, pValue[index]);
+                index += 1;
             }
             result = dbtable.GenerateUpdate(converted_list, primary_values, null, null);
             return result;
@@ -741,6 +744,7 @@ namespace Framework
             // If it's test mode, use the test connection, otherwise, create a new connection
             if (TestConnection != null)
                 conn = TestConnection;
+
             // If it's test mode, use the test transaction
             if (TestTransaction != null)
                 trans = TestTransaction;
@@ -758,6 +762,7 @@ namespace Framework
                 command.Transaction = trans;
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandTimeout = 60000;
+
                 if (parameters != null)
                 {
                     foreach (KeyValuePair<String, Object> kvp in parameters)

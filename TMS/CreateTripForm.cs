@@ -12,12 +12,11 @@ namespace TMS
 {
     public partial class CreateTripForm : Form
     {
-        private int page;
-
+        Dictionary<String, DataRow> vehl = new Dictionary<string, DataRow>();
         public CreateTripForm()
         {
             InitializeComponent();
-            Size = new Size(377, 358);
+            Size = new Size(390, Size.Height);
         }
 
         private void CreateTripForm_Load(object sender, EventArgs e)
@@ -44,8 +43,10 @@ namespace TMS
                     param.Add("@end", dtEnd.Value);
                     //grd.DataSource = Connection.GetTMSConnection.ExecuteStoredProcedure("SP_AvailableVehicle", param);
                     //grd.ClearSelection();
-                    lb.DataSource = Connection.GetTMSConnection.ExecuteStoredProcedure("SP_AvailableVehicle", param);
-                    lb.DisplayMember = "Vehicle";
+                    var dt = Connection.GetTMSConnection.ExecuteStoredProcedure("SP_AvailableVehicle", param);
+                    lb.DataSource = dt;
+                    vehl = Utils.BuildIndex_DataTable(dt, "vehicle_id");
+                    lb.DisplayMember = "display";
                     lb.ValueMember = "Vehicle";
                     pSchedule.Visible = false;
                     pVehicle.Visible = true;
@@ -62,7 +63,11 @@ namespace TMS
                 lblExpStart.Text = dtStart.Value.Date.ToShortDateString();
                 lblExpEnd.Text = dtEnd.Value.Date.ToShortDateString();
                 lblIncharge.Text = txtIncharge.Text;
-                lblVehicle.Text = lb.SelectedValue.ToString();
+                lblVehicle.Text = lb.Text;
+                lblDriver.Text = txtDriver.Text;
+                lblHelper1.Text = txtHelper1.Text;
+                lblHelper2.Text = txtHelper2.Text;
+                lblHelper3.Text = txtHelper3.Text;
                 pVehicle.Visible = false;
                 pOverview.Visible = true;
                 btnNav.Text = "Save";
@@ -76,12 +81,16 @@ namespace TMS
                 unit.ExpectedStart = lblExpStart.Text;
                 unit.ExpectedEnd = lblExpEnd.Text;
                 unit.Incharge = lblIncharge.Text;
-                unit.VehicleId = lblVehicle.Text;
+                unit.VehicleId = lb.SelectedValue.ToString();
                 unit.RouteId = "";
                 unit.ActualStart = "";
                 unit.ActualEnd = "";
                 unit.Cost = "";
                 unit.LastUpdated = "";
+                unit.Driver = lblDriver.Text;
+                unit.Helper1 = lblHelper1.Text;
+                unit.Helper2 = lblHelper2.Text;
+                unit.Helper3 = lblHelper3.Text;
 
                 manager.InsertTrip(unit);
                 manager.RunScript();

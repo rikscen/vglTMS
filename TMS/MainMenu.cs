@@ -79,5 +79,18 @@ namespace TMS
             dash.Dock = DockStyle.Fill;
             dash.Show();
         }
+
+        private void routePlanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var route = new RoutePlanForm())
+            {
+                route.ShowDialog();
+            }
+        }
+
+        private void customerRouteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CustomerRouteForm());
+        }
     }
 }

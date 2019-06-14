@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Framework;
 
-namespace TMS.Utilities
+namespace TMS
 {
     public static class Connection
     {

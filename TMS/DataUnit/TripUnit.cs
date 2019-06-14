@@ -4,6 +4,7 @@
     {
         public string TripId { get; set; }
         public string VehicleId { get; set; }
+        public string plateno { get; set; }
         public string Incharge { get; set; }
         public string ExpectedStart { get; set; }
         public string ExpectedEnd { get; set; }
@@ -12,6 +13,10 @@
         public string Cost { get; set; }
         public string RouteId { get; set; }
         public string LastUpdated { get; set; }
+        public string Driver { get; set; }
+        public string Helper1 { get; set; }
+        public string Helper2 { get; set; }
+        public string Helper3 { get; set; }
     }
 
     public class TripOrderUnit

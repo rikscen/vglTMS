@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS", "TMS\TMS.csproj", "{E015A450-DAED-4D93-AA6F-8D845F29D8B4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TMSsetup", "TMSsetup\TMSsetup.vdproj", "{0820CA70-FD45-4F01-B3FA-8AFB6606AF1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VGLHelper", "VGLHelper\VGLHelper.csproj", "{74B10D25-B102-4936-B6FC-9BF8785DEF93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,10 @@ Global
 		{E015A450-DAED-4D93-AA6F-8D845F29D8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E015A450-DAED-4D93-AA6F-8D845F29D8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E015A450-DAED-4D93-AA6F-8D845F29D8B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0820CA70-FD45-4F01-B3FA-8AFB6606AF1D}.Debug|Any CPU.ActiveCfg = Debug
-		{0820CA70-FD45-4F01-B3FA-8AFB6606AF1D}.Release|Any CPU.ActiveCfg = Release
+		{74B10D25-B102-4936-B6FC-9BF8785DEF93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B10D25-B102-4936-B6FC-9BF8785DEF93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B10D25-B102-4936-B6FC-9BF8785DEF93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B10D25-B102-4936-B6FC-9BF8785DEF93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
